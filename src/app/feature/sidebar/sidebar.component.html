@@ -1,0 +1,122 @@
+<div class="sidebar">
+  <div class="d-flex flex-column flex-shrink-0 side-size">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+      <svg class="bi me-2" width="40" height="32">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
+      <span class="fs-4">Sidebar</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      @for (menu of sidebarMenus; track $index) {
+      <li class="nav-item">
+        <!-- active -->
+        <a href="#" class="nav-link d-flex align-items-center" aria-current="page">
+          @if(menu.icon){
+          <span class="sidebar-icon" [innerHTML]="menu.icon | safe"> </span>
+          }
+          <span class="sidebar-label"> {{menu.label}}</span>
+        </a>
+      </li>
+      }
+
+      <li class="nav-item active">
+        <!-- active -->
+        <a href="#" class="nav-link d-flex align-items-center position-relative" aria-current="page" data-bs-toggle="collapse"
+          data-bs-target="#home-collapse" aria-expanded="false">
+          <span class="sidebar-icon" [innerHTML]="'home' | safe"> </span>
+          <span class="sidebar-label"> {{'Select'}}</span>
+          <span class="select-aero" [innerHTML]="'angleUp' | safe"> </span>
+        </a>
+        <div class="collapse" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class=" rounded">Overview</a></li>
+            <li><a href="#" class=" rounded">Updates</a></li>
+            <li><a href="#" class=" rounded">Reports</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <ul class="list-unstyled ps-0">
+          <!-- <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed btn-border-none"
+                            data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                            Home
+                        </button>
+                        <div class="collapse" id="home-collapse" style="">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li><a href="#" class=" rounded">Overview</a></li>
+                                <li><a href="#" class=" rounded">Updates</a></li>
+                                <li><a href="#" class=" rounded">Reports</a></li>
+                            </ul>
+                        </div>
+                    </li> -->
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>mdo</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem;">
+    <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+      <svg class="bi" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="visually-hidden">Icon-only</span>
+    </a>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+      <li class="nav-item">
+        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Products"><use xlink:href="#grid"></use></svg>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+          <svg class="bi" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"></use></svg>
+        </a>
+      </li>
+    </ul>
+    <div class="dropdown border-top">
+      <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+      </a>
+      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </div> -->
