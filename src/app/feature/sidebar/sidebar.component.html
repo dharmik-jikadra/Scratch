@@ -11,7 +11,7 @@
       @for (menu of sidebarMenus; track $index) {
       <li class="nav-item">
         <!-- active -->
-        <a href="#" class="nav-link d-flex align-items-center" aria-current="page">
+        <a [routerLink]="menu.url" routerLinkActive="active"  class="nav-link d-flex align-items-center" aria-current="page">
           @if(menu.icon){
           <span class="sidebar-icon" [innerHTML]="menu.icon | safe"> </span>
           }

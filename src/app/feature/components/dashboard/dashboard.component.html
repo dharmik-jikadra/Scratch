@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-md-12 col-lg-6">
+    <div class="card min-height-350">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <h6>Business Insights</h6>
+          <ng-container
+            *ngTemplateOutlet="
+              contentTemplate;
+              context: { $implicit: businessCtrl }
+            "
+          ></ng-container>
+        </div>
+        <div class="bg-gray-dark mt-2">
+          <div class="inner-card p-3">
+            <div
+              class="d-flex justify-content-between mb-3 p-2 pt-0 border-bottom"
+            >
+              <h6>
+                <span
+                  class="bg-primary p-2"
+                  [innerHTML]="'totalRevenue' | safe"
+                ></span>
+                <span class="ps-2">Total Revenue</span>
+              </h6>
+              <h6 class="fw-500">
+                $634.99 <span class="text-secondary">(633 Orders)</span>
+              </h6>
+            </div>
+            <div class="d-flex justify-content-between mb-3 p-2 border-bottom">
+              <h6>
+                <span
+                  class="bg-success p-2"
+                  [innerHTML]="'bestSelling' | safe"
+                ></span>
+                <span class="ps-2">Best Selling Item</span>
+              </h6>
+              <h6 class="fw-500">Burger</h6>
+            </div>
+            <div class="d-flex justify-content-between p-2 pb-0">
+              <h6>
+                <span
+                  class="bg-danger p-2"
+                  [innerHTML]="'timeDelivery' | safe"
+                ></span>
+                <span class="ps-2">On-Time Delivery</span>
+              </h6>
+              <h6 class="fw-500">613</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <h6>Menu Distribution</h6>
+          <ng-container
+            *ngTemplateOutlet="
+              contentTemplate;
+              context: { $implicit: distributionCtrl }
+            "
+          ></ng-container>
+        </div>
+        <app-chart
+          [chartOption]="distributionChart"
+          [customStyle]="chartHeight"
+        ></app-chart>
+      </div>
+    </div>
+  </div>
+  @for(chart of barChartList; track $index;){
+  <div class="col-md-12 col-lg-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <h6>{{ chart.label }}</h6>
+          <ng-container
+            *ngTemplateOutlet="
+              contentTemplate;
+              context: { $implicit: chart.control }
+            "
+          ></ng-container>
+        </div>
+        <app-chart
+          [chartOption]="$index === 1 ? trendOrdersChart : trendIncomeChart"
+          [customStyle]="chartHeight"
+        ></app-chart>
+      </div>
+    </div>
+  </div>
+  }
+</div>
+
+<ng-template #contentTemplate let-control>
+  <!-- <nz-form-control>
+        <nz-select nzPlaceHolder="Select" [formControl]="control">
+            <nz-option nzValue="Weekly" nzLabel="Weekly"></nz-option>
+            <nz-option nzValue="Monthly" nzLabel="Monthly"></nz-option>
+        </nz-select>
+    </nz-form-control> -->
+  <select class="form-select mb-3 select-filter">
+    <option selected disabled hidden>Select</option>
+    <option value="Weekly">Weekly</option>
+    <option value="Monthly">Monthly</option>
+  </select>
+</ng-template>

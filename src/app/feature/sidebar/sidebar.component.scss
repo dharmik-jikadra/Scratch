@@ -50,17 +50,19 @@
             border-radius: 0px 100px 100px 0px;
             padding: 4px 26px;
 
+            &.active {
+                &.nav-link {
+                    background-color: #0f1015;
+                    position: relative;
+                }
+            }
+
             &:hover {
                 background-color: #0f1015;
             }
         }
 
-        &.active {
-            .nav-link {
-                background-color: #0f1015;
-                position: relative;
-            }
-        }
+
     }
 
     .nav-item.active {

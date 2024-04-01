@@ -15,3 +15,15 @@ a {
 [data-bs-theme="dark"] {
     --bs-body-bg: var(--dark);
 }
+
+.card {
+    border: none;
+
+    .inner-card {
+        background-color: #12151e;
+    }
+}
+
+.bg-gray-dark {
+    background-color: #12151e;
+}
