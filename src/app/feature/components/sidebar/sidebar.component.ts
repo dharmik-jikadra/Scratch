@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { SafePipe } from '../../shared/pipes/safe.pipe';
+import { RouterModule } from '@angular/router';
+import { SafePipe } from '../../../shared/pipes/safe.pipe';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [SafePipe],
+  imports: [RouterModule, SafePipe],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
@@ -12,22 +13,22 @@ export class SidebarComponent {
   public sidebarMenus = [
     {
       label: 'Dashboard',
-      url: '',
+      url: 'dashboard',
       icon: 'dashboard',
     },
     {
       label: 'Map',
-      url: '',
+      url: 'maps',
       icon: 'location',
     },
     {
       label: 'Charts',
-      url: '',
+      url: 'charts',
       icon: 'home',
     },
     {
       label: 'Users Page',
-      url: '',
+      url: 'users',
       icon: 'multiple',
       subMenu: [
         {
