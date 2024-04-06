@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { SafePipe } from '../../shared/pipes/safe.pipe';
 import { RouterModule } from '@angular/router';
+import { SafePipe } from '../../../shared/pipes/safe.pipe';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterModule,SafePipe],
+  imports: [RouterModule, SafePipe],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })

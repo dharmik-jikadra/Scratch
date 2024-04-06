@@ -1,3 +1,30 @@
+<!-- <h2 class="md-heading mb-2 text-center text-md-start">OTP Verification</h2>
+<p class="text text-center text-md-start mb-4 pb-3">
+  Code has been sent to <span class="d-block">{{ mobileWithCountry }}</span>
+</p>
+<label for="otp">Enter OTP</label>
+<div class="otp-input">
+  @for(index of digits;let i = $index; track i){
+  <input
+    type="number"
+    maxlength="1"
+    min="0"
+    max="9"
+    nz-input
+    (input)="onInput($event, i)"
+    (paste)="onPaste($event)"
+    [value]="digits[i]"
+    (keydown)="onBackspace($event, i)"
+    #digit
+  />
+  }
+</div>
+<p class="text mt-3">
+  Didn't recieved OTP? @if(timer){ Resent OTP in
+  {{ timer }} Seconds } @else {
+  <a (click)="startTimer(); resend.emit(mobileWithCountry)">Resend Now</a>
+  }
+</p> -->
 <div class="row">
   <div class="col-md-12 col-lg-6">
     <div class="card min-height-350">
@@ -107,3 +134,5 @@
     <option value="Monthly">Monthly</option>
   </select>
 </ng-template>
+
+<app-otp-input></app-otp-input>

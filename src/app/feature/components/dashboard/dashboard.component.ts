@@ -4,11 +4,12 @@ import { FormControl } from '@angular/forms';
 import { EChartsOption } from 'echarts';
 import { ChartComponent } from '../../../shared/components/chart/chart.component';
 import { SafePipe } from '../../../shared/pipes/safe.pipe';
+import { OtpInputComponent } from '../otp-input/otp-input.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ChartComponent, SafePipe],
+  imports: [CommonModule, ChartComponent, SafePipe, OtpInputComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -154,7 +155,7 @@ export class DashboardComponent {
           barWidth: 20,
           itemStyle: {
             borderRadius: [5, 5, 0, 0],
-            color: 'rgb(220 53 69)'
+            color: 'rgb(220 53 69)',
           },
           color: color,
           // showBackground: true,

@@ -1,0 +1,30 @@
+<div class="col-md-12 col-lg-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h6>OTP Inputs</h6>
+        <label for="otp" class="mt-3">Enter OTP</label>
+        <div class="otp-input">
+          @for(index of digits;let i = $index; track i){
+          <input
+            type="number"
+            maxlength="1"
+            min="0"
+            max="9"
+            class="form-control"
+            (input)="onInput($event, i)"
+            (paste)="onPaste($event)"
+            [value]="digits[i]"
+            (keydown)="onBackspace($event, i)"
+            #digit
+          />
+          }
+        </div>
+        <p class="text mt-3">
+          Didn't recieved OTP? @if(timer){ Resent OTP in
+          {{ timer }} Seconds } @else {
+          <a class="text-danger" role="button" (click)="startTimer()">Resend Now</a>
+          }
+        </p>
+      </div>
+    </div>
+  </div>
