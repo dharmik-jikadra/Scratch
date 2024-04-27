@@ -13,4 +13,11 @@ export const routes: Routes = [
         (m) => m.DashboardComponent
       ),
   },
+  {
+    path: 'maps',
+    loadComponent: () =>
+      import('./feature/components/google-map/google-map.component').then(
+        (m) => m.GoogleMapComponent
+      ),
+  },
 ];

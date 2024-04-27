@@ -1,0 +1,96 @@
+<form [formGroup]="circleForm">
+  <ng-container
+    formArrayName="mapCircle"
+    *ngFor="let ctrl of getCircleCtrl.controls; let i = index"
+  >
+    <ng-container [formGroupName]="i">
+      <div class="d-flex">
+        <div class="row mt-2">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="lat">Lattitude</label>
+              <input
+                type="number"
+                id="lat"
+                class="form-control"
+                min="0"
+                formControlName="lat"
+                placeholder="Enter Lattitude"
+                (keydown)="preventSymbol($event)"
+              />
+            </div>
+            <span
+              class="error"
+              *ngIf="
+                ctrl.get('lat')?.touched && ctrl.get('lat')?.errors?.required
+              "
+              >Lattitude is Required</span
+            >
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="lng">Longitude</label>
+              <input
+                type="number"
+                id="lng"
+                class="form-control"
+                min="0"
+                formControlName="lng"
+                placeholder="Enter Longitude"
+                (keydown)="preventSymbol($event)"
+              />
+            </div>
+            <span
+              class="error"
+              *ngIf="
+                ctrl.get('lng')?.touched && ctrl.get('lng')?.errors?.required
+              "
+              >Lattitude is Required</span
+            >
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="radius">Radious</label>
+              <input
+                type="number"
+                id="radius"
+                class="form-control"
+                min="0"
+                formControlName="radious"
+                placeholder="Enter Radious"
+                (keydown)="preventSymbol($event)"
+              />
+            </div>
+            <span
+              class="error"
+              *ngIf="
+                ctrl.get('radious')?.touched &&
+                ctrl.get('radious')?.errors?.required
+              "
+              >Radious is Required</span
+            >
+          </div>
+        </div>
+        <div class="ms-3 d-flex justify-content-between align-items-end">
+          <button class="btn btn-outline-primary" (click)="addCircle()">
+            <span [innerHTML]="'add' | safe"></span>
+          </button>
+          <button class="btn btn-outline-danger ms-2" (click)="removeCircle(i)">
+            <span [innerHTML]="'delete' | safe"></span>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <div class="mt-4 d-flex justify-content-around w-25 mx-auto">
+    <button class="btn btn-primary" (click)="submitForm()"  data-bs-dismiss="offcanvas">Submit</button>
+    <button
+      class="btn btn-danger"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+      (click)="cancel()"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

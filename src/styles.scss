@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import './variable.scss';
+@import './../node_modules/bootstrap/scss/bootstrap.scss';
 
 * {
     margin: 0;
@@ -26,4 +27,27 @@ a {
 
 .bg-gray-dark {
     background-color: #12151e;
+}
+
+input {
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.btn:hover {
+    background-color: transparent;  
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.sm-border {
+    width: 1px;
+    background: grey;
 }
