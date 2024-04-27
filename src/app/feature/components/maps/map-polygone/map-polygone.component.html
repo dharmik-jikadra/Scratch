@@ -1,0 +1,79 @@
+<form [formGroup]="polygoneForm">
+  <ng-container
+    formArrayName="mapPolygone"
+    *ngFor="let ctrl of getCircleCtrl.controls; let i = index"
+  >
+    <ng-container [formArrayName]="i">
+      <ng-container *ngFor="let innerCtrl of ctrl.controls; let j = index">
+        <ng-container [formArrayName]="j">
+          <div class="d-flex">
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lat">Lattitude</label>
+                  <input
+                    type="number"
+                    id="lat"
+                    class="form-control"
+                    min="0"
+                    formControlName="lat"
+                    placeholder="Enter Lattitude"
+                    (keydown)="preventSymbol($event)"
+                  />
+                </div>
+                <span
+                  class="error"
+                  *ngIf="
+                    innerCtrl.get('lat')?.touched &&
+                    innerCtrl.get('lat')?.errors?.required
+                  "
+                  >Lattitude is Required</span
+                >
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lng">Longitude</label>
+                  <input
+                    type="number"
+                    id="lng"
+                    class="form-control"
+                    min="0"
+                    formControlName="lng"
+                    placeholder="Enter Longitude"
+                    (keydown)="preventSymbol($event)"
+                  />
+                </div>
+                <span
+                  class="error"
+                  *ngIf="
+                    innerCtrl.get('lng')?.touched &&
+                    innerCtrl.get('lng')?.errors?.required
+                  "
+                  >Longitude is Required</span
+                >
+              </div>
+            </div>
+            <ng-container *ngIf="j === 0">
+              <div class="ms-3 d-flex justify-content-between align-items-end">
+                <button class="btn btn-outline-primary" (click)="addCircle()">
+                  <span [innerHTML]="'add' | safe"></span>
+                </button>
+                <button
+                  class="btn btn-outline-danger ms-2"
+                  (click)="removeCircle(i)"
+                >
+                  <span [innerHTML]="'delete' | safe"></span>
+                </button>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+      </ng-container>
+      <hr />
+    </ng-container>
+  </ng-container>
+  <div class="mt-4 d-flex justify-content-around w-25 mx-auto">
+    <button class="btn btn-primary"  data-bs-dismiss="offcanvas" (click)="submitForm()">Submit</button>
+    <button class="btn btn-danger"  data-bs-dismiss="offcanvas" (click)="cancel()">Cancel</button>
+  </div>
+</form>
