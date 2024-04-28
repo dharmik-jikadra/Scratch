@@ -20,4 +20,11 @@ export const routes: Routes = [
         (m) => m.GoogleMapComponent
       ),
   },
+  {
+    path: 'chats',
+    loadComponent: () =>
+      import('./feature/components/chat-layout/chat-layout.component').then(
+        (m) => m.ChatLayoutComponent
+      ),
+  },
 ];

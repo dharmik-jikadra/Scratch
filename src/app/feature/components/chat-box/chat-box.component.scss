@@ -1,0 +1,22 @@
+.chat-container {
+    display: block;
+
+    .all-chats {
+        height: calc(100vh - 280px);
+        overflow-y: auto;
+    }
+
+    .messages {
+        max-width: 60%;
+        background-color: var(--sm-gray-blue)
+    }
+
+    .msg-sender {
+        margin-left: 40%;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .msg-receiver {
+        border-bottom-left-radius: 0 !important;
+    }
+}

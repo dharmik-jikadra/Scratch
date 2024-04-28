@@ -22,8 +22,8 @@ export class SidebarComponent {
       icon: 'location',
     },
     {
-      label: 'Charts',
-      url: 'charts',
+      label: 'Chats',
+      url: 'chats',
       icon: 'home',
     },
     {
