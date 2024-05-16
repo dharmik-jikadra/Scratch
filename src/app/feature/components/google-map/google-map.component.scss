@@ -1,0 +1,20 @@
+.button-wrapper {
+    @media screen and (max-width : 1200px) {
+        width: 75% !important;
+    }
+    @media screen and (max-width : 920px) {
+        width: 100% !important;
+    }
+}
+
+.below-btn-wrapper {
+    @media screen and (max-width : 1467px) {
+        width: 50% !important;
+    }
+    @media screen and (max-width : 920px) {
+        width: 80% !important;
+    }
+    @media screen and (max-width : 920px) {
+        width: 100% !important;
+    }
+}
