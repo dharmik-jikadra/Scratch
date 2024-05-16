@@ -1,8 +1,12 @@
 <div class="main-container d-flex">
+  @if(isAuthenticate | async){
   <app-sidebar />
+  }
   <div class="w-100">
+    @if(isAuthenticate | async){
     <app-header />
-    <div class="content-wrapper">
+    }
+    <div [ngClass]="{ 'content-wrapper': (isAuthenticate | async) }">
       <router-outlet></router-outlet>
     </div>
   </div>

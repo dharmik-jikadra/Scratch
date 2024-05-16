@@ -39,7 +39,7 @@ input {
 }
 
 .btn:hover {
-    background-color: transparent;  
+    background-color: transparent;
 }
 
 .error {
@@ -64,4 +64,25 @@ input {
 ::-webkit-scrollbar-thumb {
     background: #444e68;
     cursor: pointer;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.wrap-center {
+    background: var(--dark-black);
+    min-height: 100vh;
+    overflow-y: auto;
+
+    .inner-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @media screen and (max-width : 700px) {
+            width: calc(100% - 30px)!important;
+        }
+    }
 }
