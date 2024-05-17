@@ -11,11 +11,12 @@ import {
 } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../service/auth.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule, SafePipe],
+  imports: [CommonModule, RouterModule, SafePipe, TranslateModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
   animations: [
@@ -28,6 +29,7 @@ import { AuthService } from '../../service/auth.service';
 })
 export class SidebarComponent {
   private commmon = inject(CommonService);
+  private translate = inject(TranslateService);
   private router = inject(Router);
   private auth = inject(AuthService);
 

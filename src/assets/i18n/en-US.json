@@ -1,0 +1,16 @@
+{
+  "dashboard": {
+    "businessInsights": {
+      "label": "Business Insights"
+    },
+    "menuDistribution": {
+      "label": "Menu Distribution"
+    },
+    "trendIncome": {
+      "label": "Menu Distribution"
+    },
+    "trendOrder": {
+      "label": "Menu Distribution"
+    }
+  }
+}
