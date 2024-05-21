@@ -1,0 +1,16 @@
+{
+  "dashboard": {
+    "businessInsights": {
+      "label": "Business Insights in Russian"
+    },
+    "menuDistribution": {
+      "label": "Menu Distribution in Russian"
+    },
+    "trendIncome": {
+      "label": "Menu Distribution in Russian"
+    },
+    "trendOrder": {
+      "label": "Menu Distribution in Russian"
+    }
+  }
+}

@@ -5,11 +5,18 @@ import { EChartsOption } from 'echarts';
 import { ChartComponent } from '../../../shared/components/chart/chart.component';
 import { SafePipe } from '../../../shared/pipes/safe.pipe';
 import { OtpInputComponent } from '../otp-input/otp-input.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ChartComponent, SafePipe, OtpInputComponent],
+  imports: [
+    CommonModule,
+    ChartComponent,
+    SafePipe,
+    OtpInputComponent,
+    TranslateModule,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -120,7 +127,7 @@ export class DashboardComponent {
     chartData: any,
     backgroundColor?: string,
     color?: string
-  ): any {
+  ): EChartsOption {
     return {
       height: 170,
       responsive: true,
@@ -154,8 +161,13 @@ export class DashboardComponent {
           type: 'bar',
           barWidth: 20,
           itemStyle: {
+            borderColor: 'red',
+            borderWidth: 2,
             borderRadius: [5, 5, 0, 0],
-            color: 'rgb(220 53 69)',
+            // color: 'rgb(220 53 69)',
+            color: '#da192c59',
+
+            // opacity : 0.5
           },
           color: color,
           // showBackground: true,

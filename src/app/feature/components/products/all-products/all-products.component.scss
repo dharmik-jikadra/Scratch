@@ -1,0 +1,23 @@
+.tabs {
+    padding: 10px;
+    background-color: #0f1015;
+    text-align: center;
+    border: 1px solid #313131;
+    cursor: pointer;
+}
+
+.tab-active {
+    background-color: #272b3e;
+}
+
+.rounded-button {
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    &:disabled{
+        background-color: #a5a5a5;
+    }
+}

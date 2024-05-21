@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import {
-  AbstractControl,
   FormArray,
   FormBuilder,
   FormGroup,
@@ -9,7 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { SafePipe } from '../../../../shared/pipes/safe.pipe';
-declare var bootstrap: any;
 
 @Component({
   selector: 'app-map-circle',

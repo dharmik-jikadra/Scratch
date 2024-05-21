@@ -52,4 +52,12 @@ export const routes: Routes = [
       ),
     canMatch: [authGuard],
   },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./feature/components/products/all-products/all-products.component').then(
+        (m) => m.AllProductsComponent
+      ),
+    canMatch: [authGuard],
+  },
 ];
