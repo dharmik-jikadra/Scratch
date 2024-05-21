@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-body">
+    <h5>All Categories</h5>
+    <hr />
+    <div class="px-2">
+      <div class="row g-2">
+        <div class="col-lg-8 col-md-12">
+          <div class="row">
+            @for (category of allCategory; track $index) {
+            <div
+              class="col-md-3 tabs"
+              [ngClass]="{ 'tab-active': selectedTab() === category }"
+              (click)="tabChange(category)"
+            >
+              {{ category }}
+            </div>
+            }
+          </div>
+          <div class="row mt-2 g-2">
+            @for (product of productList(); track $index) {
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="inner-card">
+                <div class="p-2 pb-0">
+                  <h6>{{ product.name }}</h6>
+                  <span class="text-secondary">{{ product.description }}</span>
+                </div>
+                <hr />
+                <p class="text-center fw-bold">
+                  {{ product.price | currency : "INR" : "symbol" : "2.0-2" }}
+                </p>
+                <div
+                  class="d-flex justify-content-around align-items-center pb-3"
+                >
+                  <button
+                    class="rounded-button"
+                    (click)="updateProduct(product)"
+                  >
+                    +
+                  </button>
+                  <span>{{ product.quantity }}</span>
+                  <button
+                    class="rounded-button"
+                    (click)="updateProduct(product, true)"
+                    [disabled]="!product.quantity"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </div>
+            } @empty {
+            <h5 class="text-center">No products found</h5>
+            }
+          </div>
+        </div>
+        <div class="col-lg-4  col-md-12 ps-3">
+          <app-edit-product></app-edit-product>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

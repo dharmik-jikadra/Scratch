@@ -50,27 +50,32 @@ export class SidebarComponent {
       icon: 'home',
     },
     {
-      label: 'Users Page',
-      url: 'users',
-      icon: 'multiple',
-      subMenu: [
-        {
-          label: 'Error Page',
-          url: '',
-          icon: '',
-        },
-        {
-          label: 'Login',
-          url: '',
-          icon: '',
-        },
-        {
-          label: 'Register',
-          url: '',
-          icon: '',
-        },
-      ],
+      label: 'Products',
+      url: 'products',
+      icon: 'home'
     },
+    // {
+    //   label: 'Users Page',
+    //   url: 'users',
+    //   icon: 'multiple',
+    //   subMenu: [
+    //     {
+    //       label: 'Error Page',
+    //       url: '',
+    //       icon: '',
+    //     },
+    //     {
+    //       label: 'Login',
+    //       url: '',
+    //       icon: '',
+    //     },
+    //     {
+    //       label: 'Register',
+    //       url: '',
+    //       icon: '',
+    //     },
+    //   ],
+    // },
   ];
   navCollapse = this.commmon.collapse;
 

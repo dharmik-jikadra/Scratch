@@ -127,7 +127,7 @@ export class DashboardComponent {
     chartData: any,
     backgroundColor?: string,
     color?: string
-  ): any {
+  ): EChartsOption {
     return {
       height: 170,
       responsive: true,
