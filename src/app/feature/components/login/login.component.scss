@@ -1,10 +1,4 @@
-.login-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    @media screen and (max-width : 700px) {
-        width: 100% !important;
-    }
+.pass-icon {
+    top: 4px;
+    right: 12px;
 }

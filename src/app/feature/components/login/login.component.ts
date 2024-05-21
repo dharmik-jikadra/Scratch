@@ -11,11 +11,12 @@ import { Router, RouterModule } from '@angular/router';
 import { of } from 'rxjs';
 import { AuthService } from '../../service/auth.service';
 import { emailPattern } from '../../../shared/constants/constants';
+import { SafePipe } from '../../../shared/pipes/safe.pipe';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, SafePipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -24,7 +25,8 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
   public loginForm!: FormGroup;
-
+  public showPass: boolean = false;
+  
   constructor() {
     this.loginForm = this.fb.group({
       email: [null, [Validators.required, Validators.pattern(emailPattern)]],
@@ -35,7 +37,7 @@ export class LoginComponent {
   public get fControl() {
     return this.loginForm.controls;
   }
-  
+
   public login(): void {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
