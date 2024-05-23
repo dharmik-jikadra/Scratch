@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h5>Total time : 5 minuts</h5>
+    <h5>Remaining time : {{ remainingTime }}</h5>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-3">
+        <div class="card-header">Question {{ selectedIndex() + 1 }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ questions[selectedIndex()].question }}</h5>
+          <div *ngFor="let option of questions[selectedIndex()].options">
+            <form [formGroup]="answerForm">
+              <input
+                type="radio"
+                [name]="'question' + selectedIndex()"
+                [value]="option"
+                [id]="'option' + selectedIndex() + '-' + option"
+                [formControl]="answerCtrl.controls[selectedIndex()]"
+              />
+              <label
+                [for]="'option' + selectedIndex() + '-' + option"
+                class="ps-1"
+                >{{ option }}</label
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-between">
+      <button class="square-btn" (click)="prevQuestion()">Prev</button>
+      <button
+        class="square-btn"
+        (click)="nextQuestion(selectedIndex() === questions.length - 1)"
+      >
+        {{ selectedIndex() === questions.length - 1 ? "Submit" : "Next" }}
+      </button>
+    </div>
+  </div>
+</div>

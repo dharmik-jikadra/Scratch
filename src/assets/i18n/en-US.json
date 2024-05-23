@@ -1,4 +1,11 @@
 {
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "map": "Map",
+    "chats": "Chats",
+    "products": "Products",
+    "quiz": "Quiz"
+  },
   "dashboard": {
     "businessInsights": {
       "label": "Business Insights"

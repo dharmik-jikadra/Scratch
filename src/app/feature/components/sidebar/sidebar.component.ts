@@ -35,23 +35,28 @@ export class SidebarComponent {
 
   public sidebarMenus = [
     {
-      label: 'Dashboard',
+      label: 'sidebar.dashboard',
       url: 'dashboard',
       icon: 'dashboard',
     },
     {
-      label: 'Map',
+      label: 'sidebar.map',
       url: 'maps',
       icon: 'location',
     },
     {
-      label: 'Chats',
+      label: 'sidebar.chats',
       url: 'chats',
       icon: 'home',
     },
     {
-      label: 'Products',
+      label: 'sidebar.products',
       url: 'products',
+      icon: 'home'
+    },
+    {
+      label: 'sidebar.quiz',
+      url: 'quiz',
       icon: 'home'
     },
     // {

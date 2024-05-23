@@ -22,7 +22,7 @@
           @if(menu.icon){
           <span class="sidebar-icon" [innerHTML]="menu.icon | safe"> </span>
           } @if(!navCollapse()){
-          <span class="sidebar-label"> {{ menu.label }}</span>
+          <span class="sidebar-label"> {{ menu.label | translate }}</span>
           }
         </a>
       </li>
@@ -49,8 +49,10 @@
         </div>
       </li> -->
     </ul>
-    <hr>
-    <button class="btn btn-danger w-75 mx-auto mb-3" (click)="logout()">Logout</button>
+    <hr />
+    <button class="btn btn-danger w-75 mx-auto mb-3" (click)="logout()">
+      Logout
+    </button>
     <!-- <div class="dropdown">
       <a
         href="#"
