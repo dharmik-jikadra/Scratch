@@ -6,6 +6,8 @@ import { ChartComponent } from '../../../shared/components/chart/chart.component
 import { SafePipe } from '../../../shared/pipes/safe.pipe';
 import { OtpInputComponent } from '../otp-input/otp-input.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { TableComponent } from '../../../shared/components/table/table.component';
+import { userData, userFields } from '../../../shared/constants/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
     SafePipe,
     OtpInputComponent,
     TranslateModule,
+    TableComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
@@ -37,6 +40,9 @@ export class DashboardComponent {
     { label: 'Trend Order', control: this.trendOrderCtrl },
   ];
   public chartHeight: string = 'height : 265px';
+
+  public userFields = userFields;
+  public userData = userData;
 
   ngOnInit() {
     this.setDistributionChart();
@@ -175,7 +181,7 @@ export class DashboardComponent {
             color: backgroundColor,
           },
         },
-        
+
         // {
         //   data: chartData.map((value : any) => ({
         //     value,
