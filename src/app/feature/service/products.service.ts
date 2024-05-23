@@ -37,4 +37,11 @@ export class ProductsService {
       return res;
     });
   }
+
+  deleteProduct(index: number) {
+    this.allProducts.update((res) => {
+      res.splice(index, 1);
+      return res;
+    });
+  }
 }

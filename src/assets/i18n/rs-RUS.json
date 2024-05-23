@@ -1,4 +1,11 @@
 {
+  "sidebar": {
+    "dashboard": "Dashboard in Russian",
+    "map": "Map in Russian",
+    "chats": "Chats in Russian",
+    "products": "Products in Russian",
+    "quiz": "Quiz in Russian"
+  },
   "dashboard": {
     "businessInsights": {
       "label": "Business Insights in Russian"

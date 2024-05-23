@@ -175,6 +175,25 @@ export class DashboardComponent {
             color: backgroundColor,
           },
         },
+        
+        // {
+        //   data: chartData.map((value : any) => ({
+        //     value,
+        //     itemStyle: {
+        //       color: value === 200 ? 'yellow' : color,
+        //       borderColor: 'red',
+        //       borderWidth: 2,
+        //       borderRadius: [5, 5, 0, 0],
+        //     },
+        //   })),
+        //   type: 'bar',
+        //   barWidth: 20,
+        //   // Optionally add background style
+        //   showBackground: true,
+        //   backgroundStyle: {
+        //     color: backgroundColor,
+        //   },
+        // }
       ],
     };
   }

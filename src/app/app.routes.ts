@@ -60,4 +60,12 @@ export const routes: Routes = [
       ),
     canMatch: [authGuard],
   },
+  {
+    path: 'quiz',
+    loadComponent: () =>
+      import('./feature/components/exam/questions/questions.component').then(
+        (m) => m.QuestionsComponent
+      ),
+    canMatch: [authGuard],
+  },
 ];
