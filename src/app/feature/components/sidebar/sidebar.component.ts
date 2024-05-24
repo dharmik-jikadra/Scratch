@@ -1,7 +1,7 @@
 import { Component, effect, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { SafePipe } from '../../../shared/pipes/safe.pipe';
-import { CommonService } from '../../service/common.service';
+import { CommonService } from '../../../shared/services/common.service';
 import {
   animate,
   state,
@@ -57,6 +57,11 @@ export class SidebarComponent {
     {
       label: 'sidebar.quiz',
       url: 'quiz',
+      icon: 'home'
+    },
+    {
+      label: 'sidebar.form',
+      url: 'form',
       icon: 'home'
     },
     // {

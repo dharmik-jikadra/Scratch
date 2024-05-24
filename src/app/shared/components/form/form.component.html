@@ -1,0 +1,150 @@
+<form [formGroup]="myForm">
+  <div class="row g-3">
+    @for (ctrl of formFields; track $index) { @if(ctrl.formArray){
+    <!-- <div class="row mt-2">
+    @for (ctrlArr of ctrl.fields; track $index) {
+    <div
+      class="form-group"
+      [ngClass]="
+        ctrlArr.class
+          ? ctrlArr.class
+          : ctrl.fields.length === 2
+          ? 'col-md-6'
+          : 'col-md-4'
+      "
+    >
+      <label> {{ ctrlArr.label }}</label>
+      <input
+        type="text"
+        class="form-control"
+        [placeholder]="'Enter ' + (ctrlArr.label | lowercase)"
+      />
+    </div>
+    }
+  </div> -->
+    <ng-container
+      [formArrayName]="ctrl.control"
+      *ngFor="
+        let arrctr of getArr(ctrl.control)?.controls;
+        let i = index;
+        let isLast = last
+      "
+    >
+      <ng-container [formGroupName]="i">
+        <div class="d-flex w-100">
+          <div class="row mt-2 w-100">
+            @for (ctrlArr of ctrl.fields; track $index) {
+            <div
+              class="form-group"
+              [ngClass]="
+                ctrlArr.class
+                  ? ctrlArr.class
+                  : ctrl.fields.length === 2
+                  ? 'col-md-6'
+                  : 'col-md-4'
+              "
+            >
+              <label> {{ ctrlArr.label }}</label>
+              <input
+                type="text"
+                class="form-control"
+                [formControlName]="ctrlArr.control"
+                [placeholder]="'Enter ' + (ctrlArr.label | lowercase)"
+              />
+              <span
+                class="error"
+                *ngIf="
+                  arrctr.get(ctrlArr.control)?.touched &&
+                  arrctr.get(ctrlArr.control)?.hasError('required')
+                "
+                >{{ ctrlArr.label }} is Required</span
+              >
+              <span
+                class="error"
+                *ngIf="
+                  fControl[ctrlArr.control]?.touched &&
+                  fControl[ctrlArr.control]?.hasError('pattern')
+                "
+                >{{ ctrlArr.label }} is Invalid</span
+              >
+            </div>
+            }
+          </div>
+          <div class="ps-2 d-flex align-items-end">
+            <button
+              *ngIf="isLast"
+              class="btn btn-outline-primary"
+              (click)="addControl(ctrl.control, ctrl)"
+            >
+              <span [innerHTML]="'add' | safe"></span>
+            </button>
+            <button
+              *ngIf="getArr(ctrl.control).length > 1"
+              class="btn btn-outline-danger ms-2"
+              (click)="removeControl(ctrl.control, i)"
+            >
+              <span [innerHTML]="'delete' | safe"></span>
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    } @else if(ctrl.formGroup){ @for (ctrlGroup of ctrl.fields; track $index) {
+    <ng-container [formGroupName]="ctrl.control">
+      <div class="col-sm-6 form-group">
+        <label> {{ ctrlGroup.label }}</label>
+        <input
+          type="text"
+          class="form-control"
+          [formControlName]="ctrlGroup.control"
+          [placeholder]="'Enter ' + (ctrlGroup.label | lowercase)"
+        />
+      </div>
+    </ng-container>
+    } } @else {
+    <div class="col-sm-6 form-group">
+      <label> {{ ctrl.label }}</label>
+      <input
+        type="text"
+        class="form-control"
+        [formControlName]="ctrl.control"
+        [placeholder]="'Enter ' + (ctrl.label | lowercase)"
+      />
+      <span
+        class="error"
+        *ngIf="
+          fControl[ctrl.control].touched &&
+          fControl[ctrl.control].hasError('required')
+        "
+        >{{ ctrl.label }} is Required</span
+      >
+      <span
+        class="error"
+        *ngIf="
+          fControl[ctrl.control].touched &&
+          fControl[ctrl.control].hasError('pattern')
+        "
+        >{{ ctrl.label }} is Invalid</span
+      >
+      <!-- <ng-container
+        [ngTemplateOutlet]="fieldTemplate"
+        [ngTemplateOutletContext]="{ ctrl: ctrl, select : false }"
+      ></ng-container> -->
+    </div>
+    } }
+  </div>
+
+  <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+</form>
+
+<!-- <ng-template let-ctrl let-select #fieldTemplate>
+   {{ctrl | json}}
+  <label> {{ ctrl.label }}</label>
+  <input
+    type="text"
+    class="form-control"
+    [formControlName]="ctrl.control"
+    [placeholder]="'Enter ' + (ctrl.label | lowercase)"
+  />
+</ng-template> -->

@@ -5,6 +5,7 @@ import { SidebarComponent } from './feature/components/sidebar/sidebar.component
 import { AuthService } from './feature/service/auth.service';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     SidebarComponent,
     HeaderComponent,
     TranslateModule,
+    BreadcrumbComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

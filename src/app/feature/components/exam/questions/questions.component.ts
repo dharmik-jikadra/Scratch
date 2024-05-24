@@ -9,6 +9,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { interval, map } from 'rxjs';
+import { BreadcrumbService } from '../../../../shared/services/breadcrumb.service';
 
 @Component({
   selector: 'app-questions',
@@ -18,6 +19,7 @@ import { interval, map } from 'rxjs';
   styleUrl: './questions.component.scss',
 })
 export class QuestionsComponent {
+  private breadCrumb = inject(BreadcrumbService);
   public questions = questions;
   public selectedIndex = signal<number>(0);
   private fb = inject(FormBuilder);
@@ -28,6 +30,10 @@ export class QuestionsComponent {
 
   constructor() {
     this.createForm();
+    this.breadCrumb.setBreadcrumbs([
+      { label: 'Home', url: '/dashboard' },
+      { label: 'Quiz', url: '/quiz' },
+    ]);
   }
 
   ngOnInit() {
