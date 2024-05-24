@@ -36,8 +36,8 @@ export class DashboardComponent {
     label: string;
     control: FormControl;
   }[] = [
-    { label: 'Trend Income', control: this.trendIncomeCtrl },
-    { label: 'Trend Order', control: this.trendOrderCtrl },
+    { label: 'dashboard.trendIncome.label', control: this.trendIncomeCtrl },
+    { label: 'dashboard.trendOrder.label', control: this.trendOrderCtrl },
   ];
   public chartHeight: string = 'height : 265px';
 
@@ -92,6 +92,7 @@ export class DashboardComponent {
             formatter: 'Total Orders \n 3000',
             fontSize: 14,
             fontWeight: 'bold',
+            color: '#fff'
           },
           labelLine: {
             show: false,

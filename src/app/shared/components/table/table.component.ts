@@ -5,6 +5,7 @@ interface Fields {
   label: string;
   field: string;
 }
+
 @Component({
   selector: 'app-table',
   standalone: true,
