@@ -1,10 +1,17 @@
-import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  NgZone,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapCircleComponent } from '../maps/map-circle/map-circle.component';
 import { MapPolygoneComponent } from '../maps/map-polygone/map-polygone.component';
 import { MapPolylineComponent } from '../maps/map-polyline/map-polyline.component';
 import { CommonModule } from '@angular/common';
+import { BreadcrumbService } from '../../../shared/services/breadcrumb.service';
 
 @Component({
   selector: 'app-google-map',
@@ -22,6 +29,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './google-map.component.scss',
 })
 export class GoogleMapComponent {
+  private breadCrumb = inject(BreadcrumbService);
   @ViewChild('mapContainer') mapContainer!: ElementRef;
 
   private map!: google.maps.Map;
@@ -36,7 +44,13 @@ export class GoogleMapComponent {
   private sourceAutoComplete: any;
   private destinationAutoComplete: any;
   public address: FormControl = new FormControl('');
-  constructor(private ngZone: NgZone) {}
+
+  constructor(private ngZone: NgZone) {
+    this.breadCrumb.setBreadcrumbs([
+      { label: 'Home', url: '/' },
+      { label: 'Map', url: '/maps' },
+    ]);
+  }
 
   ngAfterViewInit(): void {
     // document.body.setAttribute('data-bs-theme', 'light');

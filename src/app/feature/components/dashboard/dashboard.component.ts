@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { EChartsOption } from 'echarts';
 import { ChartComponent } from '../../../shared/components/chart/chart.component';
@@ -8,6 +8,7 @@ import { OtpInputComponent } from '../otp-input/otp-input.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TableComponent } from '../../../shared/components/table/table.component';
 import { userData, userFields } from '../../../shared/constants/user';
+import { BreadcrumbService } from '../../../shared/services/breadcrumb.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +25,8 @@ import { userData, userFields } from '../../../shared/constants/user';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  // private commonService = inject(CommonService);
+  private breadCrumb = inject(BreadcrumbService);
+
   public trendIncomeChart!: EChartsOption;
   public trendOrdersChart!: EChartsOption;
   public distributionChart!: EChartsOption;
@@ -44,6 +46,9 @@ export class DashboardComponent {
   public userFields = userFields;
   public userData = userData;
 
+  constructor() {
+    this.breadCrumb.setBreadcrumbs([]);
+  }
   ngOnInit() {
     this.setDistributionChart();
     this.setTrendIncomeChart();
@@ -92,7 +97,7 @@ export class DashboardComponent {
             formatter: 'Total Orders \n 3000',
             fontSize: 14,
             fontWeight: 'bold',
-            color: '#fff'
+            color: '#fff',
           },
           labelLine: {
             show: false,

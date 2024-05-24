@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonService } from '../../service/common.service';
+import { CommonService } from '../../../shared/services/common.service';
 import { SafePipe } from '../../../shared/pipes/safe.pipe';
 import { TranslateService } from '@ngx-translate/core';
 
