@@ -96,3 +96,16 @@ input {
     border: none;
     border-radius: 10px;
 }
+
+
+.rounded-button {
+    height: 35px;
+    width: 35px;
+    background-color: var(--white);
+    color: black;
+    border: none;
+    border-radius: 50%;
+    &:disabled {
+        background-color: #a5a5a5;
+    }
+}
