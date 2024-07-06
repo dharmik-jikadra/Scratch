@@ -68,4 +68,28 @@ export const routes: Routes = [
       ),
     canMatch: [authGuard],
   },
+  {
+    path: 'meet',
+    loadComponent: () =>
+      import('./feature/components/apiRTC/create-meet/create-meet.component').then(
+        (m) => m.CreateMeetComponent
+      ),
+    canMatch: [authGuard],
+  },
+  {
+    path: 'meet/:id',
+    loadComponent: () =>
+      import('./feature/components/apiRTC/group-meet/group-meet.component').then(
+        (m) => m.GroupMeetComponent
+      ),
+    canMatch: [authGuard],
+  },
+  {
+    path: 'images',
+    loadComponent: () =>
+      import('./feature/components/images/images.component').then(
+        (m) => m.ImagesComponent
+      ),
+    canMatch: [authGuard],
+  },
 ];

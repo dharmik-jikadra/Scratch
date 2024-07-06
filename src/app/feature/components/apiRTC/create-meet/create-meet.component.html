@@ -1,0 +1,95 @@
+<div class="card h-75">
+  <div class="card-body">
+    <div class="row align-items-center h-100">
+      <div class="col-6 p-4">
+        <h2>Video Calls and Meetings for Everyone</h2>
+        <h6>Video Conference</h6>
+        <span class="text-secondary"
+          >Connect, collaborate and celebrate from anywhere with Meet</span
+        >
+        <div class="row mt-3">
+          <div class="col-sm-3">
+            <button class="btn-outline-white" (click)="createMeet()">New Meet</button>
+          </div>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Code or Link"
+            />
+          </div>
+          <div class="col-sm-2">
+            <button class="btn-outline-white" (click)="joinMeet()">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner br-10">
+            <div class="carousel-item active">
+              <img
+                src="https://img.freepik.com/premium-vector/friends-being-same-online-meeting_23-2148518830.jpg?w=1060"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://img.freepik.com/premium-photo/group-business-team-video-conference-meeting-online-concept-illustration-cartoon-generative-ai_1002555-3828.jpg"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://img.freepik.com/premium-photo/virtual-meet…hered-video-conference-work-line_493343-33820.jpg?w=1060"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

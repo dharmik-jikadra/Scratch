@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-body">
+    <h5>All Images</h5>
+    <div class="d-flex flex-wrap">
+      @for (img of imagesList; track $index) {
+      <div class="img-wrapper">
+        <img [src]="img" alt="img" (click)="openImage($index)" />
+      </div>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="popup-img" #popupImage>
+  <div class="popup-img-wrap">
+    <div class="display-image">
+      <img [src]="imagesList[currentIndex]" alt="img" />
+    </div>
+    <div class="button-wrapper">
+      <button class="rounded-button" [disabled]="!currentIndex" (click)="previous()"><</button>
+      <button
+        class="rounded-button"
+        [disabled]="currentIndex === imagesList.length - 1"
+        (click)="next()"
+      >
+        >
+      </button>
+    </div>
+    <div class="close-button">
+      <button class="rounded-button" (click)="closeImages()">
+        <span [innerHTML]="'cancel' | safe"></span>
+      </button>
+    </div>
+  </div>
+</div>

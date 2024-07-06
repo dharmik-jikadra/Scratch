@@ -60,8 +60,18 @@ export class SidebarComponent {
       icon: 'home'
     },
     {
+      label: 'sidebar.meeting',
+      url: 'meet',
+      icon: 'home'
+    },
+    {
       label: 'sidebar.form',
       url: 'form',
+      icon: 'home'
+    },
+    {
+      label: 'Images',
+      url: 'images',
       icon: 'home'
     },
     // {
